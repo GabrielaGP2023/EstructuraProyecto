@@ -14,26 +14,30 @@ public class ServicioTarea implements IServicioTarea {
 
     @Override
     public List<Tarea> consultarTodos() {
-        return repoTarea.consultarTodos();
+        return
+                repoTarea.findAll();
     }
 
     @Override
     public Tarea consultarUno(int idTarea) {
-        return repoTarea.consultarUno(idTarea);
+
+        return repoTarea.findById(idTarea).orElse(new Tarea());
     }
 
     @Override
     public Tarea insertar(Tarea t) {
-        return repoTarea.insertar(t);
+
+        return repoTarea.save(t);
     }
 
     @Override
     public Tarea modificar(Tarea t) {
-        return repoTarea.modificar(t);
+        return repoTarea.save(t);
     }
 
     @Override
     public void eliminar(int idTarea) {
-        repoTarea.eliminar(idTarea);
+
+        repoTarea.deleteById(idTarea);
     }
 }
