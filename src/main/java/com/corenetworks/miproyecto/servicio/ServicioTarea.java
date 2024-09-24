@@ -20,8 +20,7 @@ public class ServicioTarea implements IServicioTarea {
 
     @Override
     public Tarea consultarUno(int idTarea) {
-
-        return repoTarea.findById(idTarea).orElse(new Tarea());
+        return repoTarea.findById(idTarea).orElse(null);
     }
 
     @Override
