@@ -43,7 +43,7 @@ public class InterceptadorErrores extends ResponseEntityExceptionHandler {
 						.concat(",");})
 				.collect(Collectors.joining());
 
-        ExcepcionRespuesta excepcion = new ExcepcionRespuesta(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+        ExcepcionRespuesta excepcion = new ExcepcionRespuesta(LocalDateTime.now(), mensaje, request.getDescription(false));
         return new ResponseEntity<>(excepcion, HttpStatus.BAD_REQUEST);
     }
 
